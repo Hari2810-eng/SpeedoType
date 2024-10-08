@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #2fd0b5;
+}
+
+.wrapper {
+  background-color: white;
+  width: 500px; 
+  height: 550px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Makes sure the green header is flush with the box */
+}
+
+
+
+.wrapper .title {
+  height: 100px;
+  background: #16a085;
+  border-radius: 5px 5px 0 0;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper form {
+  padding: 25px 35px;
+}
+
+.wrapper form .input-box {
+  position: relative;
+  margin: 20px 0;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px 45px 10px 15px; 
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+}
+
+.input-box input:focus {
+  border-color: #16a085; 
+}
+
+.input-box i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #999;
+}
+
+.input-box.button input {
+  margin-top: 20px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 45px;
+  background: #16a085;
+  border: 1px solid #16a085;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-box.button input:hover {
+  background: #12876f;
+}
+
+
+.wrapper form .login-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 17px;
+}
+
+.wrapper form .login-link a {
+  color: #16a085; 
+  text-decoration: none;
+}
+
+form .login-link a:hover {
+  text-decoration: underline;
+}

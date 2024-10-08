@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Home</title>
+    <link rel="stylesheet" href="HomeStyles.css">
+    
+</head>
+<body>
+	
+    <div class="wrapper home-wrapper">
+        <div class="button-box">
+            <button class="play-btn" onclick="navigateToPlay()">Play</button>
+        </div>
+        <div class="button-row">
+            <button class="create-btn" onclick="openModal()">Create</button>
+            <button class="join-btn" onclick="openJoinModal()">Join</button>
+        </div>
+    </div>
+     <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Create a Game Room</h2>
+            <form action="/SpeedoType/Game" method="GET">
+                <input type="hidden" name="action" value="createRoom">
+                <label for="level">Select Difficulty:</label>
+                <select name="level" id="level">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                <button type="submit" class="modal-button">Create Room</button>
+            </form>
+        </div>
+    </div>
+    <div id="joinModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeJoinModal()">&times;</span>
+            <h2>Join a Game Room</h2>
+            <form action="/SpeedoType/Game" method="GET">
+                <input type="hidden" name="action" value="joinRoom">
+                <label for="roomCode">Enter Room Code:</label>
+                <input type="text" name="roomCode" id="roomCode" placeholder="Enter Room Code">
+                <button type="submit" class="modal-button">Join Room</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function navigateToPlay() {
+            window.location.href = 'PlaySolo.html';
+        }
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+        function openJoinModal() {
+            document.getElementById('joinModal').style.display = 'block';
+        }
+        function closeJoinModal() {
+            document.getElementById('joinModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('createModal')) {
+                document.getElementById('createModal').style.display = 'none';
+            } else if (event.target == document.getElementById('joinModal')) {
+                document.getElementById('joinModal').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

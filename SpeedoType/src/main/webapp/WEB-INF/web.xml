@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" version="6.0">
+  <servlet>
+    <description></description>
+    <display-name>LoginServlet</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.play.speedoType.ui.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <display-name>SpeedoType</display-name>
+  <welcome-file-list>
+    <welcome-file>login.html</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>SpeedoTypeServlet</display-name>
+    <servlet-name>SpeedoTypeServlet</servlet-name>
+    <servlet-class>com.play.speedoType.SpeedoTypeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SpeedoTypeServlet</servlet-name>
+    <url-pattern>/SpeedoTypeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SignUpServlet</display-name>
+    <servlet-name>SignUpServlet</servlet-name>
+    <servlet-class>com.play.speedoType.ui.SignUpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignUpServlet</servlet-name>
+    <url-pattern>/SignUpServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GameServlet</display-name>
+    <servlet-name>GameServlet</servlet-name>
+    <servlet-class>com.play.speedoType.ui.GameServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GameServlet</servlet-name>
+    <url-pattern>/Game</url-pattern>
+  </servlet-mapping>
+  <servlet>
+        <servlet-name>GameWebSocket</servlet-name>
+        <servlet-class>jakarta.websocket.server.ServerContainer</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>GameWebSocket</servlet-name>
+        <url-pattern>/game</url-pattern>
+    </servlet-mapping>
+</web-app>

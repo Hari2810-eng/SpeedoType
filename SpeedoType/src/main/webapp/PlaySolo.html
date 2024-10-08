@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Solo Mode</title>
+    <link rel="stylesheet" href="playStyles.css">
+	<script>
+		window.onload = function() {
+		    fetchGameText();
+		};
+		function fetchGameText() {
+		    fetch('/SpeedoType/GameServlet?action=fetchText') 
+		        .then(response => response.text()) 
+		        .then(data => {
+		            document.getElementById('text-to-type').textContent = data;
+
+		            document.getElementById('text-input').disabled = false;
+		        })
+		        .catch(error => {
+		            console.error('Error fetching game text:', error);
+		            document.getElementById('text-to-type').textContent = "Error loading text";
+		        });
+		}
+		function startGame() {
+		    const roomCode = sessionStorage.getItem('roomCode');
+
+		    fetch('/SpeedoType/GameServlet?action=startGame&roomCode=' + roomCode)
+		        .then(response => {
+		            if (response.ok) {
+		                return response.json();
+		            } else {
+		                throw new Error('Failed to start the game: ' + response.statusText);
+		            }
+		        })
+		        .then(data => {
+		            console.log(data.message);
+		            // Proceed to start the game (update UI, etc.)
+		        })
+		        .catch(error => {
+		            console.error('Error starting game:', error);
+		        });
+		}
+
+	</script>
+</head>
+<body>
+    <div class="play-wrapper">
+        <h2>Play Solo</h2>
+        
+        <div id="reference-text">
+            <p id="text-to-type">Type the given text here...</p>
+        </div>
+
+        <textarea id="text-input" placeholder="Type here..." disabled></textarea>
+
+        <div id="wpm-result"></div>
+
+        <button id="start-btn" onclick="startGame()">Start</button>
+    </div>
+
+</body>
+</html>
